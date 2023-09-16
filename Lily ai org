@@ -1,0 +1,74 @@
+Code to farm org
+
+```lua
+-- Creating the HUD (Head-Up Display)
+local player = game.Players.LocalPlayer
+local gui = Instance.new("ScreenGui")
+local frame = Instance.new("Frame")
+frame.Parent = gui
+frame.Size = UDim2.new(0, 200, 0, 120)
+frame.Position = UDim2.new(0.5, -100, 0.5, -60)
+frame.BackgroundColor3 = Color3.fromRGB(0, 255, 255) -- Cyan color
+frame.BorderSizePixel = 0
+
+local teleportButton = Instance.new("TextButton")
+teleportButton.Parent = frame
+teleportButton.Size = UDim2.new(0, 180, 0, 30)
+teleportButton.Position = UDim2.new(0.5, -90, 0.2, -15)
+teleportButton.BackgroundColor3 = Color3.new(0, 0, 0)
+teleportButton.TextColor3 = Color3.new(1, 1, 1)
+teleportButton.FontSize = Enum.FontSize.Size14
+teleportButton.Text = "Start Process"
+teleportButton.MouseButton1Click:Connect(function()
+    -- Code to start the process
+    while true do
+        -- Code to teleport and spam abilities goes here
+        wait(0.1) -- Adjust the delay between ability uses here
+    end
+end)
+
+local stopButton = Instance.new("TextButton")
+stopButton.Parent = frame
+stopButton.Size = UDim2.new(0, 180, 0, 30)
+stopButton.Position = UDim2.new(0.5, -90, 0.5, -15)
+stopButton.BackgroundColor3 = Color3.new(0, 0, 0)
+stopButton.TextColor3 = Color3.new(1, 1, 1)
+stopButton.FontSize = Enum.FontSize.Size14
+stopButton.Text = "Stop Process"
+stopButton.MouseButton1Click:Connect(function()
+    -- Code to stop the process
+    -- Add the necessary code to stop the teleporting and ability spamming process here
+end)
+
+-- Function to handle ability button clicks
+local function abilityButtonClick(abilityName)
+    while true do
+        -- Code to spam abilities goes here
+        wait(0.1) -- Adjust the delay between ability uses here
+    end
+end
+
+-- Detecting available devil fruit abilities
+local abilities = {} -- Replace this with the code to detect available devil fruit abilities
+
+-- Creating ability buttons
+local yOffset = 0.3
+local buttonHeight = 30
+
+for i, abilityName in ipairs(abilities) do
+    local abilityButton = Instance.new("TextButton")
+    abilityButton.Parent = frame
+    abilityButton.Size = UDim2.new(0, 180, 0, buttonHeight)
+    abilityButton.Position = UDim2.new(0.5, -90, 0.2 + (i-1)*yOffset, -15)
+    abilityButton.BackgroundColor3 = Color3.new(0, 0, 0)
+    abilityButton.TextColor3 = Color3.new(1, 1, 1)
+    abilityButton.FontSize = Enum.FontSize.Size14
+    abilityButton.Text = abilityName
+    abilityButton.MouseButton1Click:Connect(function()
+        abilityButtonClick(abilityName)
+    end)
+end
+
+-- Displaying the HUD
+gui.Parent = player.PlayerGui
+```
